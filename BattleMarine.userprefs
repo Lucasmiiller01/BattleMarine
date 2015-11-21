@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GetRegistros.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LoginAndRegistroController.cs">
     <Files>
-      <File FileName="Assets\Scripts\GetRegistros.cs" Line="22" Column="3" />
-      <File FileName="Assets\Scripts\SetRegistro.cs" Line="15" Column="55" />
+      <File FileName="Assets\Scripts\LoginAndRegistroController.cs" Line="58" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
