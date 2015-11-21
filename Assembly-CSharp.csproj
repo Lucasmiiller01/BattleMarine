@@ -48,8 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GetRegistros.cs" />
-     <Compile Include="Assets\Scripts\HighScoreManager.cs" />
-     <Compile Include="Assets\Scripts\LoginManager.cs" />
      <Compile Include="Assets\Scripts\SetRegistro.cs" />
      <Compile Include="Assets\Scripts\ShipSelectController.cs" />
      <Compile Include="Assets\Scripts\TileIntegrationManager.cs" />

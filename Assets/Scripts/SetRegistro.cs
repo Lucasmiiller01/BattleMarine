@@ -7,6 +7,7 @@ public class SetRegistro : MonoBehaviour {
 	public Text login;
 	public InputField senha;
 	public GameObject mensage;
+
 	
 	
 	
@@ -14,8 +15,7 @@ public class SetRegistro : MonoBehaviour {
 		url = "http://defensordofeudorecord.16mb.com/Conexao.php";
 
 	}
-	
-	
+
 	
 	public void SetRegistroToData()
 	{

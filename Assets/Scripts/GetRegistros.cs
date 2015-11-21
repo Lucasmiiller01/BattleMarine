@@ -15,37 +15,31 @@ public class GetRegistros : MonoBehaviour {
 		Network.proxyIP = "10.10.10.1";
 		Network.proxyPort = 3128;
 		Network.useProxy = true;
-		link = "http://defensordofeudorecord.16mb.com/index1.php";
+		link = "http://www.defensordofeudorecord.16mb.com/index1.php";
 		StartCoroutine(GetLoginAndSenha(link));
 	}
 	public void CompareAndValida()
 	{
-		for (int i = 0,h = 0; i < 100; i ++) 
+		for (int i = 0; i < 100; i ++) 
 		{
-			if(login.text == logins[h] && senha.text == senhas[h])
+
+			if(login.text == logins[i] && senha.text == senhas[i])
 			{
 				mensage.SetActive(true);
 				mensage.GetComponent<Text>().text = "Login Realizado com Sucesso.";
 				mensage.GetComponent<Text>().color = Color.green;
+				break;
 			}
-
-			else if(h < 99)
-			{ 
-				mensage.SetActive(true);
-				mensage.GetComponent<Text>().text = "Verificando Login.";
-				mensage.GetComponent<Text>().color = Color.yellow;
-				h ++;
-			}
+			
 			else
 			{ 
 				mensage.SetActive(true);
 				mensage.GetComponent<Text>().text = "Registre-se.";
 				mensage.GetComponent<Text>().color = Color.yellow;
-			
+
 			}
-
-
 		}
+		
 	}
 	public void GetRegistro()
 	{
