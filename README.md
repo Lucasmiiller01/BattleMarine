@@ -6,5 +6,7 @@
 TODO: 
 	- Add Tiles 10x10.
 	- Add boats allocation system.
+	- User registration
+
 	
 				...
