@@ -5,8 +5,8 @@ using System.Collections;
 public class SetRegistro : MonoBehaviour {
 	private string url;
 	public Text login;
-	public Text senha;
-	public GameObject Registrado;
+	public InputField senha;
+	public GameObject mensage;
 	
 	
 	
@@ -19,21 +19,31 @@ public class SetRegistro : MonoBehaviour {
 	
 	public void SetRegistroToData()
 	{
-		if(senha.text != "" || login.text != ""){
+		if(senha.text != "" && login.text != ""){
 			WWWForm rada = new WWWForm();
 			rada.AddField("senha", senha.text);
 			
 			rada.AddField("login", login.text);
 			
 			WWW www = new WWW(url,rada);
-			Registrado.SetActive(true);
-			Registrado.GetComponent<Text>().text = "Login Realizado com Sucesso.";
-			Registrado.GetComponent<Text>().color = Color.green;
+			if(www.error == null)
+			{
+				mensage.SetActive(true);
+				mensage.GetComponent<Text>().text = "Cadastro Realizado com Sucesso.";
+				mensage.GetComponent<Text>().color = Color.green;
+			}
+			else 
+			{
+				mensage.SetActive(true);
+				mensage.GetComponent<Text>().text = "Verifique sua internet.";
+				mensage.GetComponent<Text>().color = Color.yellow;
+			}
 		}
-		else{ 
-			Registrado.GetComponent<Text>().text = "Preencha todas as informaçoes.";
-			Registrado.GetComponent<Text>().color = Color.red;
-			Registrado.SetActive(true);
+		else
+		{ 
+			mensage.GetComponent<Text>().text = "Preencha todos os dados.";
+			mensage.GetComponent<Text>().color = Color.red;
+			mensage.SetActive(true);
 		}
 		
 	}
