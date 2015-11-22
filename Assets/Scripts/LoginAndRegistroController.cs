@@ -31,6 +31,7 @@ public class LoginAndRegistroController : MonoBehaviour {
 				mensage.SetActive(true);
 				mensage.GetComponent<Text>().text = "Login Realizado com Sucesso.";
 				mensage.GetComponent<Text>().color = Color.green;
+				Application.LoadLevel("Game");
 				break;
 			}
 			
