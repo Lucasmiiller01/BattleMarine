@@ -11,6 +11,7 @@ TODO:
     - Add Feedback to the User
 	- Withdrawn for Login
 	- The full session and Registration System
+	- Transition logon phase paragraph Game
 
 	
 				...
