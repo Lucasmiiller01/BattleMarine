@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Desktop\BattleMarine\Assets\Scripts\LoginAndRegistroController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LoginAndRegistroController.cs">
     <Files>
-      <File FileName="..\..\..\Desktop\BattleMarine\Assets\Scripts\LoginAndRegistroController.cs" Line="34" Column="35" />
+      <File FileName="Assets\Scripts\LoginAndRegistroController.cs" Line="70" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

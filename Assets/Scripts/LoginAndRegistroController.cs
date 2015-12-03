@@ -4,8 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class LoginAndRegistroController : MonoBehaviour {
-	private string[] logins = new string[100];
-	private string[] senhas = new string[100];
+	
 	public Text login;
 	public InputField senha;
 	private string link;
@@ -19,99 +18,81 @@ public class LoginAndRegistroController : MonoBehaviour {
 		link = "http://www.defensordofeudorecord.16mb.com/index1.php";
 
 		url = "http://defensordofeudorecord.16mb.com/Conexao.php";
-		StartCoroutine(GetLoginAndSenha(link));
+
 	}
 	public void CompareAndValida()
 	{
-		for (int i = 0; i < 100; i ++) 
-		{
-			
-			if(login.text == logins[i] && senha.text == senhas[i] && login.text != "")
-			{
-				mensage.SetActive(true);
-				mensage.GetComponent<Text>().text = "Login Realizado com Sucesso.";
-				mensage.GetComponent<Text>().color = Color.green;
-				Application.LoadLevel("Game");
-				break;
-			}
-			
-			else
-			{ 
-				mensage.SetActive(true);
-				mensage.GetComponent<Text>().text = "Usuario ou senha incorreta.";
-				mensage.GetComponent<Text>().color = Color.red;
-				
+		StartCoroutine (CheckLogin(login.text, senha.text));
+	
+	}
+
+	IEnumerator CheckLogin(string user, string pass)
+	{
+			yield return new WaitForSeconds (0f);
+			WWW w = new WWW (link + "?service=login&user=" + user + "&pass=" + pass);
+			yield return w;
+			if (!string.IsNullOrEmpty (w.error)) {
+				print (w.error);
+			} else {
+				switch(w.text)
+				{
+					case "0":
+						mensage.SetActive(true);
+						mensage.GetComponent<Text>().text = "Senha incorreto.";
+						mensage.GetComponent<Text>().color = Color.red;
+						break;
+					case "-1":
+						mensage.SetActive(true);
+						mensage.GetComponent<Text>().text = "Usuario nao existe.";
+						mensage.GetComponent<Text>().color = Color.red;
+						break;
+					case "1":
+						mensage.SetActive(true);
+						mensage.GetComponent<Text>().text = "Login Realizado com Sucesso.";
+						mensage.GetComponent<Text>().color = Color.green;
+						Application.LoadLevel("Game");
+						break;
+
+					default:
+						Debug.LogError (w.text);
+						break;
+				}
 			}
 		}
-		
-	}
-	public void GetRegistro()
-	{
-		StartCoroutine(GetLoginAndSenha(link));
-		
-	}
-	public void SetRegistroToData()
-	{
-		for (int i = 0; i < 100; i ++) 
-		{
-			if(logins[i] != login.text)
-			{
-				if(senha.text != "" && login.text != "" && i > 98){
 
+	
+	IEnumerator SetRegistro(string user, string pass)
+	{
+			yield return new WaitForSeconds (0f);
+			WWW w = new WWW (link + "?service=cadastro&user=" + user + "&pass=" + pass);
+			yield return w;
+			if (!string.IsNullOrEmpty (w.error)) {
+				print (w.error);
+			} else {
+				switch(w.text)
+				{
+				case "New login created successfully":
 					mensage.SetActive(true);
-					mensage.GetComponent<Text>().text = "Cadastro Realizado com Sucesso.";
-					mensage.GetComponent<Text>().color = Color.green;
+					mensage.GetComponent<Text>().text = "Usuario cadastrado com Sucesso.";
+					mensage.GetComponent<Text>().color = Color.red;
+					break;
+				case "Error":
+					mensage.SetActive(true);
+					mensage.GetComponent<Text>().text = "Erro ao cadastrar.";
+					mensage.GetComponent<Text>().color = Color.red;
+					break;
 					
-					WWWForm rada = new WWWForm();
-					rada.AddField("senha", senha.text);
-					rada.AddField("login", login.text);
-					WWW www = new WWW(url,rada);
-					print(i);
+				default:
+					Debug.LogError (w.text);
 					break;
 				}
-				else
-				{ 
-					mensage.GetComponent<Text>().text = "Preencha todos os dados.";
-					mensage.GetComponent<Text>().color = Color.red;
-					mensage.SetActive(true);
-				}
 			}
-			else 
-			{
-				mensage.SetActive(true);
-				mensage.GetComponent<Text>().text = "Usuario ja cadastrado.";
-				mensage.GetComponent<Text>().color = Color.red;
-				break;
-			}
-
 		}
-
-	}
-	IEnumerator GetLoginAndSenha(string url)
+	
+	
+	public void SetRegistroToData()
 	{
-		WWW u = new WWW(url);
-		new WaitForSeconds(1f);
-		yield return u;
-		if(u.error == null){
-			string[] opa = u.text.Split ('/','>');
-			string pao = string.Join (";",opa);
-			pao = pao.Replace (";", string.Empty);
-			opa = pao.Split ('.');
-			
-			for (int i = 0,z = 0,h = 0, f = 1; f < opa.Length; i += 2, f += 2,z ++) 
-			{
-				logins[z] = opa [i];
-				senhas[z] = opa [f];
-			}
-		}
-		else
-		{
-			
-			mensage.SetActive(true);
-			mensage.GetComponent<Text>().text = "Verifique sua internet.";
-			mensage.GetComponent<Text>().color = Color.red;
-		}
-		
+		StartCoroutine (SetRegistro(login.text, senha.text));
 	}
+	
 }
-
