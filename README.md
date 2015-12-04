@@ -8,7 +8,7 @@ TODO:
 	- Add boats allocation system.
 	- User registration and entrance to the game done in php integrated with unity
 	- Add Record 
-    - Add Feedback to the User
+        - Add Feedback to the User
 	- Withdrawn for Login
 	- The full session and Registration System
 	- Transition logon phase paragraph Game
@@ -23,7 +23,7 @@ TODO:
 
 - 1 dos barcos de tamanho 2 e outro de tamanho 3.
 
-- Sistema de registro e login (server php / db mySQL).
+- registro do usuário e login para o jogo feito em php integrado com unity (server php / db mySQL).
 
 
 	
