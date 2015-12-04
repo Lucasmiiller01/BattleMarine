@@ -6,7 +6,7 @@
 TODO: 
 	- Add Tiles 10x10.
 	- Add boats allocation system.
-	- User registration and entrance to the game done in php
+	- User registration and entrance to the game done in php integrated with unity
 	- Add Record 
     - Add Feedback to the User
 	- Withdrawn for Login
