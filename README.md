@@ -6,7 +6,7 @@
 TODO: 
 	- Add Tiles 10x10.
 	- Add boats allocation system.
-	- User registration
+	- User registration and login
 	- Add Record 
     - Add Feedback to the User
 	- Withdrawn for Login
